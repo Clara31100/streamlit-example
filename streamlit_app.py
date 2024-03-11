@@ -2,7 +2,7 @@ import altair as alt
 import numpy as np
 import pandas as pd
 import streamlit as st
-
+import folium
 """
 # Welcome to Streamlit!
 
@@ -12,7 +12,7 @@ forums](https://discuss.streamlit.io).
 
 In the meantime, below is an example of what you can do with just a few lines of code:
 """
-
+'''
 num_points = st.slider("Number of points in spiral", 1, 10000, 1100)
 num_turns = st.slider("Number of turns in spiral", 1, 300, 31)
 
@@ -38,3 +38,12 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
         color=alt.Color("idx", legend=None, scale=alt.Scale()),
         size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
     ))
+'''
+
+
+# Generate a Folium map with center coordinates (0, 0)
+map = folium.Map(location=[0, 0], zoom_start=2)
+# Locate the coordinates 0, 0
+folium.Marker([0, 0]).add_to(map)
+# Display the map
+map
