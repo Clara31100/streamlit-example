@@ -49,5 +49,5 @@ map = folium.Map(location=[0, 0], zoom_start=2)
 folium.Marker([0, 0]).add_to(map)
 
 # Afficher la carte dans Streamlit
-st.write(map)
+st.write(map._repr_html_(), unsafe_allow_html=True)
 
