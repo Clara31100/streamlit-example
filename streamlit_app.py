@@ -2,6 +2,7 @@ import altair as alt
 import numpy as np
 import pandas as pd
 import streamlit as st
+import folium
 """
 # Welcome to Streamlit!
 
@@ -39,10 +40,14 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
     ))
 
 
-import folium
-# Generate a Folium map with center coordinates (0, 0)
+
+
+
+# Créer la carte Folium
 map = folium.Map(location=[0, 0], zoom_start=2)
-# Locate the coordinates 0, 0
+# Ajouter un marqueur aux coordonnées (0, 0)
 folium.Marker([0, 0]).add_to(map)
-# Display the map
+
+# Afficher la carte dans Streamlit
 st.write(map)
+
