@@ -41,22 +41,20 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
 
 
 def main():
-    # Créer la carte Folium
-    m = folium.Map(location=[48.8566, 2.3522], zoom_start=12)
+    # Titre de l'application
+    st.title("Carte de la France")
 
-    # Ajouter un marqueur
-    folium.Marker(location=[48.8566, 2.3522], popup='Paris').add_to(m)
+    # Créer une carte Folium centrée sur la France
+    france_map = folium.Map(location=[46.603354, 1.888334], zoom_start=6)
 
+    # Ajouter un marqueur au centre de la France
+    folium.Marker([46.603354, 1.888334], tooltip='Centre de la France').add_to(france_map)
 
-    # Convertir la carte Folium en HTML
-    m.save("map.html")
-
-    # Afficher la carte HTML dans Streamlit
-    st.markdown('<iframe src="map.html" width="100%" height="500"></iframe>', unsafe_allow_html=True)
+    # Afficher la carte dans Streamlit
+    st.write(france_map)
 
 if __name__ == "__main__":
     main()
-
 
 
 # Créer la carte Folium
