@@ -45,4 +45,4 @@ map = folium.Map(location=[0, 0], zoom_start=2)
 # Locate the coordinates 0, 0
 folium.Marker([0, 0]).add_to(map)
 # Display the map
-map
+st.write(map)
