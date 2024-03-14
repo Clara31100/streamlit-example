@@ -47,8 +47,12 @@ def main():
     # Ajouter un marqueur
     folium.Marker(location=[48.8566, 2.3522], popup='Paris').add_to(m)
 
-    # Afficher la carte dans Streamlit
-    folium_static(m)
+
+    # Convertir la carte Folium en HTML
+    m.save("map.html")
+
+    # Afficher la carte HTML dans Streamlit
+    st.markdown('<iframe src="map.html" width="100%" height="500"></iframe>', unsafe_allow_html=True)
 
 if __name__ == "__main__":
     main()
