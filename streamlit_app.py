@@ -2,7 +2,9 @@ import altair as alt
 import numpy as np
 import pandas as pd
 import streamlit as st
-import folium
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 """
 # Welcome to Streamlit!
 
@@ -38,30 +40,29 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
         color=alt.Color("idx", legend=None, scale=alt.Scale()),
         size=alt.Size("rand", legend=None, scale=alt.Scale(range=[1, 150])),
     ))
+"""
+# Graph
 
+ few lines of code
+"""
 
 def main():
     # Titre de l'application
-    st.title("Carte de la France")
+    st.title("Graphique Ridgeline avec Streamlit")
 
-    # Créer une carte Folium centrée sur la France
-    france_map = folium.Map(location=[46.603354, 1.888334], zoom_start=6)
+    # Générer des données de test
+    np.random.seed(0)
+    data = pd.DataFrame(np.random.randn(100, 4), columns=['A', 'B', 'C', 'D'])
 
-    # Ajouter un marqueur au centre de la France
-    folium.Marker([46.603354, 1.888334], tooltip='Centre de la France').add_to(france_map)
-
-    # Afficher la carte dans Streamlit
-    st.write(france_map)
+    # Créer un graphique ridgeline avec seaborn
+    plt.figure(figsize=(10, 6))
+    sns.kdeplot(data=data, fill=True)
+    plt.title('Graphique Ridgeline')
+    plt.xlabel('Valeurs')
+    plt.ylabel('Densité')
+    plt.legend(data.columns)
+    st.pyplot()
 
 if __name__ == "__main__":
     main()
-
-
-# Créer la carte Folium
-map = folium.Map(location=[0, 0], zoom_start=2)
-# Ajouter un marqueur aux coordonnées (0, 0)
-folium.Marker([0, 0]).add_to(map)
-
-# Afficher la carte dans Streamlit
-st.write(map._repr_html_(), unsafe_allow_html=True)
 
