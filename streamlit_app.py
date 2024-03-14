@@ -40,6 +40,18 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
     ))
 
 
+def main():
+    # Créer la carte Folium
+    m = folium.Map(location=[48.8566, 2.3522], zoom_start=12)
+
+    # Ajouter un marqueur
+    folium.Marker(location=[48.8566, 2.3522], popup='Paris').add_to(m)
+
+    # Afficher la carte dans Streamlit
+    folium_static(m)
+
+if __name__ == "__main__":
+    main()
 
 
 
