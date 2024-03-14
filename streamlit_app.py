@@ -39,7 +39,7 @@ st.altair_chart(alt.Chart(df, height=700, width=700)
     ))
 
 
-
+import folium
 # Generate a Folium map with center coordinates (0, 0)
 map = folium.Map(location=[0, 0], zoom_start=2)
 # Locate the coordinates 0, 0
